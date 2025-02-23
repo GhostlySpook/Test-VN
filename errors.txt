@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 8: expected statement.
+    contador = 2
+             ^
+
+Ren'Py Version: Ren'Py 8.3.4.24120703
+Tue Feb  4 21:16:06 2025
