@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 8: expected statement.
-    contador = 2
-             ^
+File "game/script.rpy", line 120: expected 'name' not found.
+    show screen with Fade(2.0, color="#FF0000")
+               ^
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Tue Feb  4 21:16:06 2025
+Sat Mar  8 01:40:50 2025

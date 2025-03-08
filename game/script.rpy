@@ -6,6 +6,9 @@
 define pyo = Character("Pyo")
 define k = Character("Kitties")
 define p = Character("Protagonista")
+define pl = Character("Pluey")
+
+image red = Solid("#FF0000")
 
 # The game starts here.
 
@@ -45,7 +48,7 @@ label lbl_irse:
 
     scene black
 
-    "Mejor me voy con todas mis partecitas en donde deben de estar"
+    "Mejor me voy con todas mis partecitas en donde deben de estar."
 
     "END: Te vas a tu casa."
 
@@ -54,16 +57,18 @@ label lbl_irse:
 label lbl_tocar_puerta:
     "Bueno... Ya estoy aquí. De paso me dan agua y como."
 
-    #Agregar sonido de tocar puerta
+    play audio knock_door
 
     "..."
 
     scene casa puerta abierta
 
+    play audio open_door
+
     "???" "¿Hola...?"
 
     p "Hola, soy yo. Eres Kitties, ¿no?"
-    extend "Me invitaste a tu casa hoy." 
+    extend " Me invitaste a tu casa hoy." 
 
     scene casa puerta abierta kitties sorprendido
 
@@ -78,6 +83,72 @@ label lbl_tocar_puerta:
             jump lbl_no_pasar_casa
 
 label lbl_no_pasar_casa:
+    "Ahora que lo pienso... No creo que sea buena idea pasar."
+    extend "Quien sabe si pueda salir una vez entre."
+
+    p "Sabes, creo que mejor otro día."
+    extend "Dejé la estufa prendida y no hay nadie adentro."
+
+    scene casa puerta abierta kitties confundido
+    k "Oh, um... No te preocupes, no vaya a ser que tu casa explote o algo."
+    "Me avisas cuando llegues a tu casa."
+
+    scene casa lejos abierta
+
+    "..."
+
+    scene calle
+
+    "Estuvo cerca, casi me atrapa. Mejor ya me regreso a mi casa."
+    
+    show pluey cuchillo
+
+    pl "¡Manos arriba y patas a la barriga!"
+
+    menu:
+        "Defenderte.":
+            play audio punch
+
+            p "¡Toma!"
+
+            "..."
+
+            show pluey enojado
+
+            pl "¡Ya te cargó el payaso!"
+
+            play sound stab
+
+            scene red with dissolve
+
+            pause 1.0
+
+            scene black with fade
+            
+            "END: Pluey te mató."
+
+            return
+
+        "Dialogar.":
+
+            p "¡Está bien! ¡Está bien! Pero no me hagas nada."
+
+            pl "Así me gusta, sueltitos y obedientes."
+
+            play music dating
+
+            Pluey "Hey..."
+
+            show pluey sonrojado
+
+            extend "No había visto que bonitos ojos tienes."
+
+
+
+
+
+    p "¡Ah! ¡No me hagas nada! ¡No me hagas nada!"
+
     return
 
 label lbl_pasar_casa:
