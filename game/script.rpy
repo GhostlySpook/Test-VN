@@ -84,14 +84,14 @@ label lbl_tocar_puerta:
 
 label lbl_no_pasar_casa:
     "Ahora que lo pienso... No creo que sea buena idea pasar."
-    extend "Quien sabe si pueda salir una vez entre."
+    extend " Quien sabe si pueda salir una vez entre."
 
     p "Sabes, creo que mejor otro día."
-    extend "Dejé la estufa prendida y no hay nadie adentro."
+    extend " Dejé la estufa prendida y no hay nadie en mi casa."
 
     scene casa puerta abierta kitties confundido
     k "Oh, um... No te preocupes, no vaya a ser que tu casa explote o algo."
-    "Me avisas cuando llegues a tu casa."
+    k "Me avisas cuando llegues a tu casa."
 
     scene casa lejos abierta
 
@@ -137,14 +137,15 @@ label lbl_no_pasar_casa:
 
             play music dating
 
-            Pluey "Hey..."
+            pl "Hey..."
 
             show pluey sonrojado
 
             extend "No había visto que bonitos ojos tienes."
 
-
-
+        "Negociar.":
+            p "¿Qué es lo que quieres? ¡Dime y te lo doy!"
+            
 
 
     p "¡Ah! ¡No me hagas nada! ¡No me hagas nada!"

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 120: expected 'name' not found.
-    show screen with Fade(2.0, color="#FF0000")
-               ^
+File "game/script.rpy", line 146: choice menuitem expects a non-empty block.
+    "Negociar.":
+                ^
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Sat Mar  8 01:40:50 2025
+Sun Mar  9 02:07:08 2025
