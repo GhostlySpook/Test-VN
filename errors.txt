@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 146: choice menuitem expects a non-empty block.
-    "Negociar.":
-                ^
+File "game/script.rpy", line 223: choice menuitem expects a non-empty block.
+    "Seguir corriendo a la calle.":
+                                   ^
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Sun Mar  9 02:07:08 2025
+Mon Mar 10 01:34:16 2025

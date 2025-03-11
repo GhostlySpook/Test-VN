@@ -10,6 +10,12 @@ define pl = Character("Pluey")
 
 image red = Solid("#FF0000")
 
+default shoes = True
+
+transform pluey_zoom:
+    zoom 7  # Adjust this number (e.g., 1.5 = 150% of original size)
+    xpos 0.5 ypos 0.5 anchor (0.5, 0.5)
+
 # The game starts here.
 
 label start:
@@ -97,13 +103,16 @@ label lbl_no_pasar_casa:
 
     "..."
 
+    #TODO Crear imagen de calle
     scene calle
 
     "Estuvo cerca, casi me atrapa. Mejor ya me regreso a mi casa."
     
-    show pluey cuchillo
+    show pluey cuchillo at pluey_zoom
 
     pl "¡Manos arriba y patas a la barriga!"
+
+    pl "¡Dame esos zapatos, ya!"
 
     menu:
         "Defenderte.":
@@ -131,26 +140,152 @@ label lbl_no_pasar_casa:
 
         "Dialogar.":
 
-            p "¡Está bien! ¡Está bien! Pero no me hagas nada."
+            p "¡Está bien! ¡Está bien! Pero no me hagas nada. ¿No podemos razonar?"
 
-            pl "Así me gusta, sueltitos y obedientes."
+            pl "¡Dame tus zapatos ya. Pero rápido!"
 
-            play music dating
+            menu:
+                "Preguntar sobre su día.":
+                    p "Pero... Pero no me has dicho como ha ido tu día."
 
-            pl "Hey..."
+                    show pluey enojado
 
-            show pluey sonrojado
+                    pl "¿Mi día? ¡No te hagas güey! ¡Dámelos!"
 
-            extend "No había visto que bonitos ojos tienes."
+                    play sound stab
+
+                    scene red with dissolve
+
+                    pause 1.0
+
+                    scene black with fade
+                    
+                    "END: No pudiste evitar a Pluey."
+
+                    return
+
+                "Mencionar que se ve sexy.":
+                    p "No me había dado cuenta, pero... Tu color verde, tu forma de limón... Hacen que te veas sexy."
+
+                    pl "Hey..."
+
+                    show pluey sonrojado
+
+                    play music dating
+
+                    extend " No había visto que bonitos ojos tienes."
+                    
+                    p "¿Bonitos... Ojos...?"
+
+                    pl "Ahora los veo de cerca y no me había dado que los tienes bonitos."
+
+                    pl "Sabes... Nomás quería tus zapatos, pero me estás robando el corazón."
+
+                    pl "Dámelo."
+
+                    play sound stab
+
+                    scene red with dissolve
+
+                    pause 1.0
+
+                    scene black with fade
+                    
+                    "END: Justo en el corazón."
+
+                    return
+
 
         "Negociar.":
             p "¿Qué es lo que quieres? ¡Dime y te lo doy!"
-            
 
+            pl "¡Te dije que me dieras tus zapatos!"
 
-    p "¡Ah! ¡No me hagas nada! ¡No me hagas nada!"
+            p "¿Mis zapatos? ¡Toma, toma! ¡Ten!"
 
+            play sound shoes
+
+            "Rápidamente me quito los zapatos."
+
+            #TODO Sacar imagen de Tims
+            show shoes at right
+
+            $ shoes = False
+
+            pl "¡Órale! ¡Quítese, solo damelos y vete!"
+
+            jump lbl_volver_corriendo_casa
+
+        "Escapar.":
+            p "(Esperaré a que se distraiga y...)"
+
+            menu:
+                "Seguir corriendo a la calle.":
+                    p "¡Déjeme solo! ¡AAAAAAH!"
+
+                    #TODO
+                    play sound running
+
+                    #TODO
+                    scene calle correr
+
+                    p "(¡No no no no no! ¡Son mis zapatos!)"
+
+                    scene caller correr 2
+
+                    play sound running
+
+                    pause 1.0
+
+                    p "(Creo... Creo que ya lo perdí...)"
+
+                    show pluey enojado at pluey_zoom
+
+                    pl "¡Dame tus mugres zapatos!"
+
+                    play sound stab
+
+                    scene red with dissolve
+
+                    pause 1.0
+
+                    scene black with fade
+                    
+                    "END: No escapaste de Pluey."
+
+                "Correr a casa de Kitties.":
+
+                    jump lbl_volver_corriendo_casa
     return
+
+label lbl_volver_corriendo_casa:
+    p "¡Ah! ¡AAAAAAAAAAH!"
+
+    #TODO
+    play sound running
+
+    scene casa lejos abierta
+
+    pause 1.0
+
+    scene casa puerta abierta kitties sorprendido with dissolve
+
+    k "¡Oh! ¡Volviste!"
+
+    scene casa puerta abierta kitties feliz
+
+    p "Déjame pasar..."
+    extend " ¡Déjame pasar ya!"
+
+    scene casa puerta abierta kitties confundido
+
+    k "O-Oh, u-um... ¡E-Está bien!"
+
+    scene sala
+
+    p "(Eso... Eso estuvo... Cerca...)"
+    
+    jump lbl_pasar_casa
 
 label lbl_pasar_casa:
     return
