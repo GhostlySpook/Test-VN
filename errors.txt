@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 223: choice menuitem expects a non-empty block.
-    "Seguir corriendo a la calle.":
-                                   ^
+File "game/script.rpy", line 211: multiple at clauses are prohibited.
+    show shoes at right at Transform(zoom=0.7, xpos=0.5, ypos=0.5, anchor=(0.5, 0.4)) with dissolve
+                          ^
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Mon Mar 10 01:34:16 2025
+Mon Mar 17 02:20:29 2025

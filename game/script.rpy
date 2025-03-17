@@ -26,22 +26,22 @@ label start:
 
     scene black
 
-    "Kitties me invitó a ir a su casa."
+    p "(Kitties me invitó a ir a su casa.)"
 
-    "Dijo algo sobre pasar un rato juntos."
+    p "(Dijo algo sobre pasar un rato juntos.)"
 
     #scene bg room
     scene casa lejos
 
-    "Creo que esa es su casa. Una casa blanca."
+    p "(Creo que esa es su casa. Una casa blanca.)"
 
     scene casa puerta cerrada
 
-    "Ahora que lo pienso..."
+    p "(Ahora que lo pienso...)"
 
-    "Dicen que Kitties tuvo entrenamiento y que me puede desarmar 7 veces antes de tocar el suelo."
+    p "(Dicen que Kitties tuvo entrenamiento y que me puede desarmar 7 veces antes de tocar el suelo.)"
 
-    "Tal vez no sea buena idea tocarle la puerta."
+    p "(Tal vez no sea buena idea tocarle la puerta.)"
 
     menu:
         "Tocar la puerta.":
@@ -50,18 +50,18 @@ label start:
             jump lbl_irse
 
 label lbl_irse:
-    "Ahora que lo pienso, creo que mejor lo dejo así."
+    p "(Ahora que lo pienso, creo que mejor lo dejo así.)"
 
     scene black
 
-    "Mejor me voy con todas mis partecitas en donde deben de estar."
+    p "(Mejor me voy con todas mis partecitas en donde deben de estar.)"
 
     "END: Te vas a tu casa."
 
     return
 
 label lbl_tocar_puerta:
-    "Bueno... Ya estoy aquí. De paso me dan agua y como."
+    p "(Bueno... Ya estoy aquí. De paso me dan agua y como.)"
 
     play audio knock_door
 
@@ -89,8 +89,8 @@ label lbl_tocar_puerta:
             jump lbl_no_pasar_casa
 
 label lbl_no_pasar_casa:
-    "Ahora que lo pienso... No creo que sea buena idea pasar."
-    extend " Quien sabe si pueda salir una vez entre."
+    "(Ahora que lo pienso... No creo que sea buena idea pasar."
+    extend " Quien sabe si pueda salir una vez entre.)"
 
     p "Sabes, creo que mejor otro día."
     extend " Dejé la estufa prendida y no hay nadie en mi casa."
@@ -103,10 +103,10 @@ label lbl_no_pasar_casa:
 
     "..."
 
-    #TODO Crear imagen de calle
+    #Crear imagen de calle
     scene calle
 
-    "Estuvo cerca, casi me atrapa. Mejor ya me regreso a mi casa."
+    p "(Estuvo cerca, casi me atrapa. Mejor ya me regreso a mi casa.)"
     
     show pluey cuchillo at pluey_zoom
 
@@ -205,10 +205,10 @@ label lbl_no_pasar_casa:
 
             play sound shoes
 
-            "Rápidamente me quito los zapatos."
+            "(Rápidamente me quito los zapatos...)"
 
-            #TODO Sacar imagen de Tims
-            show shoes at right
+            #Sacar imagen de Tims
+            show shoes at Transform(zoom=0.4, xpos=0.7, ypos=0.6, anchor=(0.5, 0.4)) with dissolve
 
             $ shoes = False
 
@@ -223,15 +223,13 @@ label lbl_no_pasar_casa:
                 "Seguir corriendo a la calle.":
                     p "¡Déjeme solo! ¡AAAAAAH!"
 
-                    #TODO
                     play sound running
 
-                    #TODO
-                    scene calle correr
+                    scene calle at Transform(zoom=1.5, xpos=0.5, ypos=0.5, anchor=(0.5, 0.4)) with dissolve
 
                     p "(¡No no no no no! ¡Son mis zapatos!)"
 
-                    scene caller correr 2
+                    scene calle at Transform(zoom=2.0, xpos=0.5, ypos=0.5, anchor=(0.5, 0.3)) with dissolve
 
                     play sound running
 
@@ -261,7 +259,6 @@ label lbl_no_pasar_casa:
 label lbl_volver_corriendo_casa:
     p "¡Ah! ¡AAAAAAAAAAH!"
 
-    #TODO
     play sound running
 
     scene casa lejos abierta
@@ -288,6 +285,11 @@ label lbl_volver_corriendo_casa:
     jump lbl_pasar_casa
 
 label lbl_pasar_casa:
+    scene sala
+
+    p "(¿Esta... Es la casa de Kitties? La imaginé más grande y..."
+    extend " Peligrosa.)"
+
     return
 
 
